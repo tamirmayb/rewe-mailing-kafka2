@@ -1,8 +1,9 @@
 package com.rewe.emails;
 
 import com.rewe.models.Email;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,8 +14,8 @@ import org.springframework.util.concurrent.SuccessCallback;
 
 import java.util.List;
 
-@Slf4j
 public class KafkaEmailProducer {
+    private static final Logger log = LoggerFactory.getLogger(KafkaEmailProducer.class);
 
     @Autowired
     private KafkaTemplate<String, Email> kafkaTemplate;

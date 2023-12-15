@@ -1,7 +1,5 @@
 package com.rewe.models;
 
-import lombok.*;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,11 +7,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "email_statistics")
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@Builder
-@EqualsAndHashCode(of = { "domain" })
 public class Statistics {
 
     @Id
@@ -22,4 +15,27 @@ public class Statistics {
 
     @Column(name = "domain_count")
     private long count;
+
+    public Statistics(String domain) {
+        this.domain = domain;
+    }
+
+    public Statistics() {
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    public long getCount() {
+        return count;
+    }
+
+    public void setCount(long count) {
+        this.count = count;
+    }
 }

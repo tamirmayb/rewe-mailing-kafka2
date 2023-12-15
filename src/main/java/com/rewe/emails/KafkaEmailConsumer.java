@@ -2,7 +2,8 @@ package com.rewe.emails;
 
 import com.rewe.models.Statistics;
 import com.rewe.repository.StatisticsRepository;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.TopicPartition;
@@ -10,8 +11,8 @@ import org.springframework.messaging.handler.annotation.Payload;
 
 import java.util.Optional;
 
-@Slf4j
 public class KafkaEmailConsumer {
+    private static final Logger log = LoggerFactory.getLogger(KafkaEmailConsumer.class);
 
     @Autowired
     private StatisticsRepository statisticsRepository;
@@ -39,9 +40,7 @@ public class KafkaEmailConsumer {
 
     private void saveStatistics(String domain) {
         Optional<Statistics> byDomain = statisticsRepository.findByDomain(domain);
-        Statistics statistics = byDomain.orElse(Statistics.builder()
-                .domain(domain)
-                .build());
+        Statistics statistics = byDomain.orElse(new Statistics(domain));
         statistics.setCount(statistics.getCount() + 1);
         statisticsRepository.save(statistics);
     }
