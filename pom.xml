@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <springdoc-openapi.version>1.6.15</springdoc-openapi.version>
         <modelmapper.version>3.1.1</modelmapper.version>
         <maven.jacoco.version>0.8.7</maven.jacoco.version>
@@ -45,11 +45,10 @@
             <version>2.6.0</version>
         </dependency>
 
-        <!-- Lombok  -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.18.28</version>
         </dependency>
 
         <!-- h2 / mysql database -->
@@ -64,6 +63,12 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.7</version>
         </dependency>
 
         <!-- modelmapper -->
@@ -101,7 +106,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.3.12.RELEASE</version>
+                <version>3.1.2</version>
                 <configuration>
                     <excludes>
                         <exclude>

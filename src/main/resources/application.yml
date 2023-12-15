@@ -1,4 +1,9 @@
 kafka:
-  bootstrap-servers: localhost:9092
+  servers: localhost:29092
   topic:
     reweEmailsTopic: kafkaReweEmailsTopic
+    topicGroup: kafkaReweEmailsTopicsGroup
+
+emails:
+  domains:
+    gmail.com, yahoo.com
