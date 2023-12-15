@@ -1,23 +1,24 @@
 package com.rewe.rest;
 
+import com.rewe.services.EmailSenderService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.web.bind.annotation.GetMapping;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RequestMapping("/api/emails")
 @RestController
+@AllArgsConstructor
 public class EmailsController {
 
-    @Operation(summary = "Gets a list of repositories with optional filters")
-    @GetMapping(path = "/hello", produces = {"application/json"})
-    public String index() {
-        return "<b>Greetings from Spring Boot!<b>";
+    @Operation(summary = "Generates emails randomly")
+    @PostMapping(path = "/generate", produces = {"application/json"})
+    public void generate(@RequestParam(defaultValue = "30") Integer generate) {
+        senderService.execute(generate);
     }
+
+    private final EmailSenderService senderService;
 }
+

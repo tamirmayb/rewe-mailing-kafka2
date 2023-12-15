@@ -1,4 +1,4 @@
-package com.rewe;
+package com.rewe.services;
 
 import com.rewe.emails.KafkaEmailConsumer;
 import com.rewe.emails.KafkaEmailProducer;
@@ -7,16 +7,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-@Component
+@Service
 @Slf4j
-public class EmailSender {
+public class EmailSenderService {
 
     @Autowired
     private KafkaEmailProducer sender;
@@ -26,10 +26,10 @@ public class EmailSender {
 
     private final static List<String> EMAIL_DOMAINS_FOR_TESTS = Arrays.asList("gmail.com", "yahoo.com", "amazon.com");
 
-    public void execute() {
-        log.info("Sending 30 emails is executing...");
+    public void execute(int numOfEmailToSend) {
+        log.info("Sending {} emails is executing...", numOfEmailToSend);
 
-        for (int i = 0; i < 30; ++i) {
+        for (int i = 0; i < numOfEmailToSend; ++i) {
             String domain = EMAIL_DOMAINS_FOR_TESTS.get(new Random().nextInt(EMAIL_DOMAINS_FOR_TESTS.size()));
             String randomFrom = UUID.randomUUID() + "@" + domain;
 
