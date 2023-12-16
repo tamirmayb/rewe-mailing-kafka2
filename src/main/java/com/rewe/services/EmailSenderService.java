@@ -43,12 +43,12 @@ public class EmailSenderService {
     }
 
     @Bean
-    public KafkaEmailProducer multiPartitionMessageProducer(){
+    public KafkaEmailProducer kafkaEmailProducer(){
         return new KafkaEmailProducer();
     }
 
     @Bean
-    public KafkaEmailConsumer multiPartitionMessageConsumer(){
+    public KafkaEmailConsumer kafkaEmailConsumer(){
         return new KafkaEmailConsumer();
     }
 }

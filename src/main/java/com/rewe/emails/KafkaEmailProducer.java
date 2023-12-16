@@ -25,7 +25,7 @@ public class KafkaEmailProducer {
 
     public void send(String topic, Email email) {
         int partition = getPartitionByDomain(email);
-        if(partition > -1) {
+        if (partition > -1) {
             ListenableFuture<SendResult<String, Email>> future = kafkaTemplate.send(topic, partition, "", email);
             SuccessCallback<SendResult<String, Email>> successCallback = sendResult -> log.info("Sent email='{}' to topic='{}', partition = {}", email, topic, partition);
             FailureCallback failureCallback = throwable -> log.info("Could not send email='{}' to topic='{}' error was: '{}'", topic, email, throwable.getMessage());

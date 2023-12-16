@@ -65,7 +65,7 @@ Use swagger or run this: http://localhost:8080/api/emails/generate?generate=30 t
 Use swagger or run this: http://localhost:8080/api/emails/ to fetch the current statistics regarding email domains.
 
 To stop Kafka run
-```
+```bash
 docker-compose stop
 ```
 ___
