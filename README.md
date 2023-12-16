@@ -50,7 +50,7 @@ The DB resets after each restart. To access to the H2 database in dev mode:
 
 Go to http://localhost:8080/h2-console
 
-If you cannot access the console try to set JDBC URL to `jdbc:h2:mem:testdb`
+If you cannot access the console try to set JDBC URL to `jdbc:h2:mem:rewedb`
 
 API Documentation (Swagger) can be accessed here:
 
