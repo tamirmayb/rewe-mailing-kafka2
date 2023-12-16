@@ -68,9 +68,10 @@ To stop Kafka run
 ```bash
 docker-compose stop
 ```
-___
-## Thank you!
-
+---
 ### - Extra Kafka Monitoring Tools (Open Source)
 - [Kafka Manager](https://github.com/yahoo/CMAK)  - The most known one, but seems not maintained for a while.
 - [Kafdrop](https://github.com/obsidiandynamics/kafdrop) - The next popular one.
+___
+## Thank you!
+
