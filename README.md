@@ -4,6 +4,7 @@
 ### Author: Tamir Mayblat ( tamirmayb@gmail.com )
 
 ### Prerequisites:
+- Docker
 - Java 17 
 - Spring Boot 2.7.5, 
 - Kafka (Download from <https://kafka.apache.org/downloads>), 
@@ -31,6 +32,7 @@ The application uses dockerized based Kafka, to start Kafka run
 ```bash
 docker-compose up -d
 ```
+Docker will also start H2 local database where email statistics are saved 
 
 To run the backend API locally:
 ```bash
