@@ -2,12 +2,13 @@ kafka:
   servers: localhost:29092
   topic:
     reweEmailsTopic: kafkaReweEmailsTopic
-    topicGroup: kafkaReweEmailsTopicsGroup
+    topicGroup: kafkaReweEmailsTopicsGroup.
+    partitions: 0-2
 test:
   topic: embedded-test-topic
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=MySQL;DATABASE_TO_LOWER=TRUE
+    url: jdbc:h2:mem:rewedb;DB_CLOSE_DELAY=-1;MODE=MySQL;DATABASE_TO_LOWER=TRUE
     driver-class-name: org.h2.Driver
     username: sa
     password:
